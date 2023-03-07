@@ -40,6 +40,7 @@ p.usuario.mini{
 .tituloMenu{
     display: flex;
     align-items: center;
+    padding-top: 20px;
     padding-left: 20px;
 }
 
@@ -47,6 +48,17 @@ h1{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px;
+}
+
+h2{
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 10px;
+}
+
+h3{
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 ul{
@@ -75,19 +87,25 @@ li:active{
 }
 
 .contenedor{
+    position: relative;
     display: grid;
+    position: relative;
+    margin: -8px;
+    min-height: 1000px;
     grid-template-columns: 1.5fr 7fr;
-    grid-template-rows: 1.3fr 5fr;
+    grid-template-rows: 200px 5fr;
     grid-template-areas: 
        "menu header"
        "menu contenido";
 }
 
 .menu{
-    position: relative;
+    position: sticky;
+    top: 0px;
     z-index: 3;
     grid-area: menu;
-    height: auto;
+    height: 100vh;
+    width: stretch;
     background-image: linear-gradient(200deg, darkcyan, darkcyan, cyan);
     color: white;
     min-width: 200px;
@@ -95,7 +113,8 @@ li:active{
 }
 
 .header{
-    position: relative;
+    position: sticky;
+    top: 0px;
     z-index: 2;
     grid-area: header;
     background-color: white;
@@ -152,6 +171,7 @@ input:focus{
 .nombre.grande{
     font-size: 1.5rem;
     font-weight: bold;
+    padding: 6px 0 6px 0;
 }
 
 .actions{
@@ -175,6 +195,7 @@ input:focus{
     background-color: darkslategray;
 }
 
+.card,
 #alerta,
 li,
 .avatar,
@@ -196,4 +217,75 @@ button{
     background-color: lightcyan;
     margin-top: -20px;
     box-shadow: 0 10px 10px rgba(11, 113, 137, 0.3);
+    display: grid;
+    grid-template-columns: 3fr minmax(0,1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "proyectos anuncios"
+    "proyectos trending";
+}
+
+.proyectos{
+    grid-area: proyectos;
+}
+
+.anuncios{
+    grid-area: anuncios;
+}
+
+.trending{
+    grid-area: trending;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px rgba(11, 113, 137, 0.3);
+}
+
+hr{
+    margin: 15px 0 15px 0;
+}
+
+.anuncio,
+.anuncio > h3 {
+    font-size: 0.9rem;
+}
+
+.anuncio > h3, p {
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3rem;
+    line-height: 1rem;
+}
+
+.trending{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+    "titulo titulo"
+    "imagen usuario"
+    "imagen nombre";
+}
+
+.titulo{
+    grid-area: titulo;
+}
+
+.usuarioTitulo{
+    grid-area: usuario;
+}
+
+.avatar.izq{
+    grid-area: imagen;
+}
+
+.text{
+    grid-area: nombre;
 }
